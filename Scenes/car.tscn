@@ -8,6 +8,91 @@ bounce = 0.1
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_k61xc"]
 
+[sub_resource type="Animation" id="Animation_go66d"]
+resource_name = "Hop"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Car/Model:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.5, 0), Vector3(0, 0.8579922, 0), Vector3(0, 0.5, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1sfmx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Car/Model:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Car/Camera3D:fov")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [80.0]
+}
+
+[sub_resource type="Animation" id="Animation_u41r7"]
+resource_name = "ZoomIn"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Car/Camera3D:fov")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [95.0, 80.0]
+}
+
+[sub_resource type="Animation" id="Animation_yi23e"]
+resource_name = "ZoomOut"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Car/Camera3D:fov")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [80.0, 95.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yi23e"]
+_data = {
+&"Hop": SubResource("Animation_go66d"),
+&"RESET": SubResource("Animation_1sfmx"),
+&"ZoomIn": SubResource("Animation_u41r7"),
+&"ZoomOut": SubResource("Animation_yi23e")
+}
+
 [node name="Car" type="Node3D" unique_id=1096950022]
 script = ExtResource("1_go66d")
 
@@ -28,5 +113,19 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 [node name="Camera3D" type="Camera3D" parent="Car" unique_id=334402785]
 transform = Transform3D(1, -1.7118191e-08, 1.7315323e-07, -3.9546148e-08, 0.9467449, 0.32198483, -1.694437e-07, -0.32198483, 0.9467449, 4.913272e-07, 3.0127878, 3.621687)
 fov = 80.0
+
+[node name="DriftTimer" type="Timer" parent="." unique_id=1536907295]
+wait_time = 2.0
+one_shot = true
+
+[node name="BoostTimer" type="Timer" parent="." unique_id=1451240805]
+wait_time = 0.8
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=937461761]
+libraries/ = SubResource("AnimationLibrary_yi23e")
+
+[connection signal="timeout" from="DriftTimer" to="." method="_on_drift_timer_timeout"]
+[connection signal="timeout" from="BoostTimer" to="." method="_on_boost_timer_timeout"]
 
 [editable path="Car/Model"]
