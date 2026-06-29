@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dccjyggcop8gh"]
+
+[ext_resource type="PackedScene" uid="uid://dxphgun88mqkm" path="res://Assets/sedan-sports.glb" id="1_m48y8"]
+[ext_resource type="Texture2D" uid="uid://vh32qkvu7cx7" path="res://Assets/colormap.png" id="2_kakyq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ryc11"]
+albedo_texture = ExtResource("2_kakyq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3s358"]
+albedo_texture = ExtResource("2_kakyq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6vdip"]
+albedo_texture = ExtResource("2_kakyq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3hse7"]
+albedo_texture = ExtResource("2_kakyq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o0onx"]
+albedo_texture = ExtResource("2_kakyq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vpg7q"]
+albedo_texture = ExtResource("2_kakyq")
+
+[node name="sedan-sports" unique_id=1830300629 instance=ExtResource("1_m48y8")]
+
+[node name="wheel-back-right" parent="." index="0" unique_id=1736328723]
+surface_material_override/0 = SubResource("StandardMaterial3D_ryc11")
+
+[node name="body" parent="." index="1" unique_id=211916440]
+surface_material_override/0 = SubResource("StandardMaterial3D_3s358")
+
+[node name="spoiler" parent="body" index="0" unique_id=1609024345]
+surface_material_override/0 = SubResource("StandardMaterial3D_6vdip")
+
+[node name="wheel-back-left" parent="." index="2" unique_id=886704267]
+surface_material_override/0 = SubResource("StandardMaterial3D_3hse7")
+
+[node name="wheel-front-left" parent="." index="3" unique_id=1235996765]
+surface_material_override/0 = SubResource("StandardMaterial3D_o0onx")
+
+[node name="wheel-front-right" parent="." index="4" unique_id=1556879695]
+surface_material_override/0 = SubResource("StandardMaterial3D_vpg7q")
