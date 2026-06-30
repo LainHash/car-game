@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 project/assembly_name="CarGame"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/road-generator/plugin.cfg")
+
 [input]
 
 Brake={

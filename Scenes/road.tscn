@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://drra5dws1gyep"]
+
+[ext_resource type="Script" uid="uid://c5ttw7y7jas55" path="res://addons/road-generator/nodes/road_manager.gd" id="1_ekj83"]
+[ext_resource type="Script" uid="uid://belfwmxbg4ma3" path="res://addons/road-generator/nodes/road_container.gd" id="1_fy6l0"]
+[ext_resource type="Script" uid="uid://cog8qoe433lef" path="res://addons/road-generator/nodes/road_point.gd" id="3_xeiim"]
+
+[node name="Road" type="Node3D" unique_id=696841110]
+
+[node name="RoadManager" type="Node3D" parent="." unique_id=1640157015]
+script = ExtResource("1_ekj83")
+metadata/_custom_type_script = "uid://c5ttw7y7jas55"
+
+[node name="RoadContainer" type="Node3D" parent="RoadManager" unique_id=1826445289]
+script = ExtResource("1_fy6l0")
+use_lowpoly_preview = true
+metadata/_custom_type_script = "uid://belfwmxbg4ma3"
+
+[node name="RP_001" type="Node3D" parent="RoadManager/RoadContainer" unique_id=781700329]
+transform = Transform3D(0.9999925, 0, 0.003877334, 0, 1, 0, -0.003877334, 0, 0.9999925, 0.089832306, 39.839783, 63.93066)
+script = ExtResource("3_xeiim")
+traffic_dir = Array[int]([2, 2, 1, 1])
+lanes = Array[int]([2, 4, 4, 2])
+next_mag = 68.50811
+prior_pt_init = NodePath("../RP_002")
+next_pt_init = NodePath("../RP_004")
+
+[node name="RP_002" type="Node3D" parent="RoadManager/RoadContainer" unique_id=393044335]
+transform = Transform3D(0.9999925, 0, 0.0038773345, 0, 1, 0, -0.0038773345, 0, 0.9999925, -0.44142532, 0, -73.08452)
+script = ExtResource("3_xeiim")
+traffic_dir = Array[int]([2, 2, 1, 1])
+lanes = Array[int]([2, 4, 4, 2])
+prior_mag = 42.801308
+next_mag = 68.50811
+prior_pt_init = NodePath("../RP_003")
+next_pt_init = NodePath("../RP_001")
+
+[node name="RP_003" type="Node3D" parent="RoadManager/RoadContainer" unique_id=1669147347]
+transform = Transform3D(-0.4187077, 0, -0.9081211, 0, 1, 0, 0.9081211, 0, -0.4187077, 85.098145, -15.92778, -76.36923)
+script = ExtResource("3_xeiim")
+traffic_dir = Array[int]([2, 2, 1, 1])
+lanes = Array[int]([2, 4, 4, 2])
+prior_mag = 69.488304
+next_mag = 42.801308
+prior_pt_init = NodePath("../RP_004")
+next_pt_init = NodePath("../RP_002")
+
+[node name="RP_004" type="Node3D" parent="RoadManager/RoadContainer" unique_id=440413255]
+transform = Transform3D(-0.8695472, 0, 0.4938498, 0, 1, 0, -0.4938498, 0, -0.8695472, 85.79703, -7.064129, 62.605614)
+script = ExtResource("3_xeiim")
+traffic_dir = Array[int]([2, 2, 1, 1])
+lanes = Array[int]([2, 4, 4, 2])
+prior_mag = 69.488304
+next_mag = 69.488304
+prior_pt_init = NodePath("../RP_001")
+next_pt_init = NodePath("../RP_003")

@@ -38,12 +38,12 @@ func _process(delta):
 		StartDrift()
 	
 	if Drifting:
-		var DriftAmount = 0
-		DriftAmount += Input.get_action_strength("SteerLeft") - Input.get_action_strength("SteerRight")
-		DriftAmount *= deg_to_rad(steering * 0.55)
-		rotate_input = DriftDirection * DriftAmount
+		var base_turn = deg_to_rad(steering) * DriftDirection * 0.8
+		var player_input = Input.get_action_strength("SteerLeft") - Input.get_action_strength("SteerRight")
+		var adjust_turn = deg_to_rad(steering) * player_input * 0.5
+		rotate_input = base_turn + adjust_turn
 		
-	if Drifting and (Input.is_action_just_pressed("Drift") or speed_input < 1):
+	if Drifting and (Input.is_action_just_released("Drift") or speed_input < 1):
 		StopDrift()
 	
 	if Ball.linear_velocity.length() > 0.75:
@@ -60,7 +60,7 @@ func StartDrift():
 	Drifting = true
 	Anim.play("Hop")
 	MinimumDrift = false
-	DriftDirection = rotate_input
+	DriftDirection = sign(rotate_input)
 	DriftTimer.start()
 
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dccjyggcop8gh"]
 
-[ext_resource type="PackedScene" uid="uid://dxphgun88mqkm" path="res://Assets/sedan-sports.glb" id="1_m48y8"]
-[ext_resource type="Texture2D" uid="uid://vh32qkvu7cx7" path="res://Assets/colormap.png" id="2_kakyq"]
+[ext_resource type="PackedScene" uid="uid://dxphgun88mqkm" path="res://assets/sedan-sports.glb" id="1_m48y8"]
+[ext_resource type="Texture2D" uid="uid://vh32qkvu7cx7" path="res://assets/colormap.png" id="2_kakyq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ryc11"]
 albedo_texture = ExtResource("2_kakyq")

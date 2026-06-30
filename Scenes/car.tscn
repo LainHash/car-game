@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dumqxawbix7eu"]
 
 [ext_resource type="Script" uid="uid://80l244fx1tk1" path="res://CarTest.gd" id="1_go66d"]
-[ext_resource type="PackedScene" uid="uid://dccjyggcop8gh" path="res://Scenes/sedan_sports.tscn" id="1_wqo35"]
+[ext_resource type="PackedScene" uid="uid://dccjyggcop8gh" path="res://scenes/sedan_sports.tscn" id="1_wqo35"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uoj53"]
 bounce = 0.1
