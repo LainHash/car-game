@@ -13,6 +13,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.41374, 0)
 [node name="Road" parent="." unique_id=696841110 instance=ExtResource("2_0wfyh")]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=2123435662]
-transform = Transform3D(300, 0, 0, 0, 0.1, 0, 0, 0, 300, 0, -15.701242, 0)
+transform = Transform3D(300, 0, 0, 0, 0.1, 0, 0, 0, 300, 0, -17.855211, 0)
 use_collision = true
 material = SubResource("StandardMaterial3D_0wfyh")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2090305105]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 74.63631, 0)
